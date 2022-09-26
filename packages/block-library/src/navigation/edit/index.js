@@ -75,6 +75,8 @@ function Navigation( {
 	setOverlayBackgroundColor,
 	overlayTextColor,
 	setOverlayTextColor,
+	overlayLinkColor,
+	setOverlayLinkColor,
 
 	// These props are used by the navigation editor to override specific
 	// navigation block settings.
@@ -594,6 +596,11 @@ function Navigation( {
 							label: __( 'Submenu & overlay text' ),
 						},
 						{
+							value: overlayLinkColor.color,
+							onChange: setOverlayLinkColor,
+							label: __( 'Submenu & overlay links' ),
+						},
+						{
 							value: overlayBackgroundColor.color,
 							onChange: setOverlayBackgroundColor,
 							label: __( 'Submenu & overlay background' ),
@@ -680,6 +687,7 @@ function Navigation( {
 					isHiddenByDefault={ 'always' === overlayMenu }
 					overlayBackgroundColor={ overlayBackgroundColor }
 					overlayTextColor={ overlayTextColor }
+					overlayLinkColor={ overlayLinkColor }
 				>
 					<UnsavedInnerBlocks
 						blocks={ uncontrolledInnerBlocks }
@@ -912,6 +920,7 @@ function Navigation( {
 							isHiddenByDefault={ 'always' === overlayMenu }
 							overlayBackgroundColor={ overlayBackgroundColor }
 							overlayTextColor={ overlayTextColor }
+							overlayLinkColor={ overlayLinkColor }
 						>
 							{ isEntityAvailable && (
 								<NavigationInnerBlocks
@@ -934,5 +943,6 @@ export default withColors(
 	{ textColor: 'color' },
 	{ backgroundColor: 'color' },
 	{ overlayBackgroundColor: 'color' },
-	{ overlayTextColor: 'color' }
+	{ overlayTextColor: 'color' },
+	{ overlayLinkColor: 'color' }
 )( Navigation );
